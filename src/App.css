@@ -12,17 +12,36 @@
   background-color: #1a1a1c;
   padding: 30px;
   margin: 20px 5px 20px 20px;
-  /* width: 700px; */
   float: left;
+  min-height: 100vh;
 }
 
-video{
+.video1{
   border-radius: 20px;
   width: 100%;
-  height: auto;
+  height: 100%;
   position: absolute;
   left: 0;
   z-index: 2;
+}
+
+.video2{
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  display: block;
+}
+
+.l1{
+  display: block;
+  margin: 39px 0px;
+}
+
+.ownvideodv{
+  width: 184px;
 }
 
 .inner{
@@ -45,7 +64,7 @@ video{
 
 #username{
   position: absolute;
-  bottom:0px;
+  bottom:20px;
   left:20px;
   background: rgba(0, 0, 0, 0.3);
   color: white;
@@ -78,7 +97,7 @@ video{
   width: calc(100% - 745px);
   margin: 20px 20px 0 0;
   float: left;
-  min-height: 547px;
+  min-height: 100vh;
 }
 
 .optionsdiv span{
@@ -155,7 +174,7 @@ video{
 
   .optionsdiv{
     width: calc(100% - 645px);
-    min-height: 447px;
+    min-height: 100vh;
   }
 
   .btnanswer{
@@ -170,8 +189,8 @@ video{
     position: relative;
     background-color: #1a1a1c;
     padding: 30px;
-    margin: 20px 20px 20px 20px;
-    display: flex;
+    margin: 20px 0px;
+    display: grid;
     justify-content: center;
     width: unset;
     float: unset;
@@ -180,8 +199,7 @@ video{
   .optionsdiv {
     background-color: #1a1a1c;
     padding: 30px;
-    margin: 20px;
-    width: 96%;
+    width: 100%;
     float: unset;
     min-height: unset;
   }
@@ -197,6 +215,10 @@ video{
   video{
     height: 100%;
   }
+  .inner{
+    width: 420px;
+    height: 260px;
+  }
 }
 
 @media only screen and (max-width:500px) {
@@ -209,6 +231,11 @@ video{
 
   .btnanswer {
     width: 158px;
+  }
+
+  .inner{
+    width: 304px;
+    height: 260px;
   }
 
 }

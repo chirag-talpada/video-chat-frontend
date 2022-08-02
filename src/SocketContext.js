@@ -1,9 +1,11 @@
 import React,{createContext,useEffect,useRef,useState} from "react";
 import {io} from 'socket.io-client';
 import Peer from 'simple-peer';
+import ring from './ringing.wav';
 
 const SocketContext=createContext();
 const socket=io('https://video-chat-apps.herokuapp.com');
+
 
 const ContextProvider=({children})=>{
     
@@ -17,6 +19,7 @@ const ContextProvider=({children})=>{
     const myVideo=useRef();
     const userVideo=useRef();
     const connectionRef=useRef();
+    const ringmp3=new Audio(ring);
 
     useEffect(()=>{
         navigator.mediaDevices.getUserMedia({audio:true,video:true})
@@ -34,6 +37,17 @@ const ContextProvider=({children})=>{
         });
 
     },[]);
+
+ 
+    function playRing(){
+        ringmp3.play();
+    }
+
+    function pauseRing(){
+        ringmp3.pause();
+        ringmp3.currentTime=0;
+    }
+    
 
     const answerCall=()=>{
         
@@ -81,7 +95,7 @@ const ContextProvider=({children})=>{
     }
 
     return (
-    <SocketContext.Provider value={{call,callAccepted,myVideo,userVideo,stream,name,setName,callEnded,me,callUser,leaveCall,answerCall}}>
+    <SocketContext.Provider value={{call,callAccepted,myVideo,userVideo,stream,name,setName,callEnded,me,callUser,leaveCall,answerCall,pauseRing,playRing}}>
         {children}
     </SocketContext.Provider>
     )

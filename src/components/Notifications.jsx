@@ -1,20 +1,26 @@
-import React,{useContext} from 'react'
+import React,{useContext} from 'react';
+
 
 import {SocketContext} from '../SocketContext';
 
 const Notifications = () => {
 
-  const {answerCall,call,callAccepted}=useContext(SocketContext);
+  const {answerCall,call,callAccepted,pauseRing,playRing}=useContext(SocketContext);
+  
+  if(call.isReceivedCall && !callAccepted) {
+    playRing();
+  }
+
 
   return (
     <>
       {call.isReceivedCall && !callAccepted && (
         <div className='notificationsdiv'>
           <div className='centerdiv'>
-            <h2>{call.name} is calling you...</h2>
+            <h2>{call.name||'Someone'} is calling you...</h2>
           </div>
           <div>
-            <button className="btn btnanswer" onClick={answerCall}>Answer</button>
+            <button className="btn btnanswer" onClick={()=>{answerCall();pauseRing();}}>Answer</button>
           </div>
         </div>   
        )} 

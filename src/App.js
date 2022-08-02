@@ -10,12 +10,12 @@ const App = () => {
   return (
     <div className='App'>
       <div className="header">Video Chat  <i class="fa-solid fa-video vicon"></i></div>
-
-      <VideoPlayer></VideoPlayer>
-      <Options>
-        <Notifications></Notifications>
-      </Options>
-
+      <div>
+        <VideoPlayer></VideoPlayer>
+        <Options>
+          <Notifications></Notifications>
+        </Options>
+      </div>
     </div>
   )
 }

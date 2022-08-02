@@ -8,10 +8,11 @@ const Options = ({children}) => {
 
   const {me,callAccepted,name,setName,callEnded,leaveCall,callUser}=useContext(SocketContext);
   const [idToCall,setIdToCall]=useState('');
-
+  
 
   return (
     <div className='optionsdiv'>
+     
       <div className='container'>
         
         <div className='item'>
@@ -23,7 +24,7 @@ const Options = ({children}) => {
           </div>
           <div>
             <CopyToClipboard text={me}>
-              <button className="btn">Copy Your ID&nbsp;&nbsp;<i class="fa-solid fa-copy"></i></button>
+              <button className="btn" >Copy Your ID&nbsp;&nbsp;<i class="fa-solid fa-copy"></i></button>
             </CopyToClipboard>
           </div>
         </div>
@@ -39,7 +40,7 @@ const Options = ({children}) => {
               {callAccepted && !callEnded?(
                 <button className="btn btnhangup" onClick={leaveCall}>Hang Up&nbsp;&nbsp;<i class="fa-solid fa-phone-slash"></i></button>
               ):(
-                <button className="btn" onClick={()=>callUser(idToCall)}>Call&nbsp;&nbsp;<i class="fa-solid fa-phone"></i></button>
+                <button className="btn" onClick={()=>{callUser(idToCall);}}>Call&nbsp;&nbsp;<i class="fa-solid fa-phone"></i></button>
               )}
               
           </div>
