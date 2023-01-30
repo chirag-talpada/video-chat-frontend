@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project is hosted on https://chigs-video-chat-app.netlify.app
+
 
 ## Available Scripts
 
